@@ -1,0 +1,115 @@
+/* =================================== */
+/* "FEATURES" PAGE-SPECIFIC STYLES
+/* =================================== */
+
+/* --- Page Header --- */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--card-background);
+}
+
+.page-header h1 {
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Detailed Showcase Section --- */
+.feature-showcase {
+  padding: 5rem 0;
+}
+
+.showcase-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+/* --- Alternating Layout --- */
+.showcase-item:nth-child(even) .showcase-image {
+  order: 2; /* Move image to the right */
+}
+.showcase-item:nth-child(even) .showcase-content {
+  order: 1; /* Move text to the left */
+}
+
+.showcase-image {
+  background-color: var(--secondary);
+  color: var(--background);
+  min-height: 350px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+:root[data-theme="dark"] .showcase-image {
+  color: var(--text);
+}
+
+.showcase-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.showcase-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.showcase-content ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+.showcase-content ul li {
+  position: relative;
+  padding-left: 1.75rem; /* Make space for custom icon */
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+/* Custom checkmark bullet */
+.showcase-content ul li::before {
+  content: "✔"; /* You can also use a Font Awesome icon */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* --- Responsive for Showcase --- */
+@media (max-width: 768px) {
+  .showcase-item {
+    grid-template-columns: 1fr; /* Stack columns */
+  }
+
+  /* Reset order for stacking */
+  .showcase-item:nth-child(even) .showcase-image {
+    order: 1;
+  }
+  .showcase-item:nth-child(even) .showcase-content {
+    order: 2;
+  }
+
+  .showcase-content {
+    text-align: center;
+  }
+
+  /* Center the list block, but keep text left-aligned */
+  .showcase-content ul {
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+  }
+}

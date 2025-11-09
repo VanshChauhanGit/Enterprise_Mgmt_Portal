@@ -423,6 +423,13 @@ a:hover {
   margin-top: 1rem;
 }
 
+.footer-column {
+      display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
 
 .footer-column h4 {
   margin-bottom: 1rem;
