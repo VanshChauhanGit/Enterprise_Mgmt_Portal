@@ -3,10 +3,189 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enterprise Management Portal</title>
+    <title>SynergyFlow - Enterprise Management Portal</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png" />
+
     <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <h1>Enterprise Management Portal</h1>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <h2 class="navbar-brand">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="logo image" />
+            <span>SynergyFlow</span>
+          </a>
+        </h2>
+
+        <ul class="navbar-nav">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/">Features</a></li>
+          <li><a href="/">Contact</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+          <button class="btn">Login</button>
+
+          <button
+            id="theme-toggle-icon"
+            class="theme-icon-btn"
+            title="Toggle light/dark theme"
+          >
+            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Streamline Your Workflow. Empower Your Team.</h1>
+          <p>
+            The all-in-one enterprise portal designed to manage projects, track
+            tasks, and boost team collaboration—all from a single, secure
+            dashboard.
+          </p>
+          <div class="hero-actions">
+            <button class="btn">Get Started</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661764570116-b1b0a2da783c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGFzaGJvYXJkfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"
+            alt="hero image"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="features" class="features">
+        <div class="container">
+          <h2 class="section-title">Everything You Need in One Place</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <h3>Project Management</h3>
+              <p>
+                Visualize project timelines, assign tasks, and track progress
+                with intuitive Kanban boards and Gantt charts.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+              <h3>Team Collaboration</h3>
+              <p>
+                Communicate in real-time, share files, and manage team calendars
+                without ever leaving the platform.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+              <h3>Intelligent Analytics</h3>
+              <p>
+                Generate custom reports, track KPIs, and get actionable insights
+                on team productivity and project health.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how-it-works">
+        <div class="container">
+          <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Sign Up Your Team</h3>
+              <p>
+                Create your secure workspace and invite team members in just a
+                few clicks.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Create Your First Project</h3>
+              <p>
+                Use our templates to set up your project boards, define tasks,
+                and assign deadlines.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Start Collaborating</h3>
+              <p>
+                Watch your team's productivity soar as everyone works in sync
+                from one central hub.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container">
+          <h2>Ready to Transform Your Business?</h2>
+          <p>
+            Join thousands of companies optimizing their workflow with
+            MgmtPortal.
+          </p>
+          <button class="btn btn-light">Get Started Now</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column footer-brand">
+            <h3>SynergyFlow</h3>
+            <p>
+              &copy; 2025 SynergyFlow Inc. <br />
+              All rights reserved.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#_">Careers</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#_">Privacy Policy</a></li>
+              <li><a href="#_">Terms of Service</a></li>
+              <li><a href="#_">Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

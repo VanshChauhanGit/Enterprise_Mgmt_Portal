@@ -1,6 +1,11 @@
+:root {
+  --navbar-height: 60px;
+}
+
 :root[data-theme="light"] {
   --text: #1b080a;
   --background: #fbf4f4;
+  --card-background: #ffffff; /* For navbar, cards, etc. */
   --primary: #c64e5a;
   --secondary: #97ddc0;
   --accent: #78a6d3;
@@ -9,35 +14,624 @@
 :root[data-theme="dark"] {
   --text: #f7e4e5;
   --background: #0b0404;
+  --card-background: #181818; /* For navbar, cards, etc. */
   --primary: #b13945;
   --secondary: #22684b;
   --accent: #2c5987;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  /* Use the --background and --text variables */
   background-color: var(--background);
   color: var(--text);
   font-family: sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
 h1,
-h2 {
+h2,
+h3,
+h4 {
   /* Use the --primary variable for headings */
   color: var(--primary);
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: opacity 0.2s;
+}
+a:hover {
+  opacity: 0.8;
 }
 
 .btn {
   /* Use the --accent variable for a button */
   background-color: var(--accent);
   color: var(--text); /* You can re-use variables */
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: opacity 0.2s;
 }
 
 .btn:hover {
   opacity: 0.8;
+}
+
+/* Utility class for section titles */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* =================================== */
+/* 2. NAVBAR
+    /* =================================== */
+.navbar {
+  background-color: var(--card-background);
+  height: var(--navbar-height);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-brand a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav a.active {
+  color: var(--primary);
+}
+
+.navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* =================================== */
+/* 9. THEME TOGGLE ICON BUTTON
+/* (Add this to your existing CSS)
+/* =================================== */
+
+.theme-icon-btn {
+  /* Reset default button styles */
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  
+  /* Size and shape */
+  font-size: 1.25rem; /* Adjust icon size */
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  
+  /* Center the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Styling to match other buttons */
+  border-radius: 50%; /* Make it circular */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-icon-btn:hover {
+  /* Use a subtle hover effect */
+  background-color: var(--accent);
+}
+
+/* --- Icon Visibility Logic --- */
+
+/* By default (light mode), hide the moon */
+.theme-icon-btn .fa-moon {
+  display: none;
+}
+.theme-icon-btn .fa-sun {
+  display: inline-block;
+}
+
+/* When dark mode is active, hide the sun and show the moon */
+:root[data-theme="dark"] .theme-icon-btn .fa-moon {
+  display: inline-block;
+}
+:root[data-theme="dark"] .theme-icon-btn .fa-sun {
+  display: none;
+}
+
+/* Hide nav links on mobile (basic, needs JS for toggle) */
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+  }
+}
+
+/* =================================== */
+/* 3. HERO SECTION
+    /* =================================== */
+.hero {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-content h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn.btn-secondary:hover {
+  background-color: var(--accent);
+  color: var(--text);
+  opacity: 1;
+}
+
+.hero-image {
+  background-color: var(--secondary);
+  color: var(--background);
+  min-height: 350px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  /* In dark mode, the placeholder text is hard to read */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+:root[data-theme="dark"] .hero-image {
+  color: #f7e4e5;
+}
+
+/* =================================== */
+/* 4. FEATURES SECTION
+    /* =================================== */
+.features {
+  padding: 5rem 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+:root[data-theme="dark"] .feature-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+}
+
+/* =================================== */
+/* 5. "HOW IT WORKS" SECTION
+    /* =================================== */
+.how-it-works {
+  padding: 5rem 0;
+  background-color: var(--card-background); /* Breaks up page flow */
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+}
+
+.step-number {
+  background-color: var(--primary);
+  color: var(--background);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem auto;
+}
+
+.process-step h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* =================================== */
+/* 6. CALL TO ACTION (CTA) SECTION
+    /* =================================== */
+.cta {
+  padding: 5rem 0;
+  background-color: var(--accent);
+  color: var(--text); /* Text should be light on accent bg */
+}
+
+.cta .container {
+  text-align: center;
+  max-width: 700px;
+}
+
+/* Override default h2 color */
+.cta h2 {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  opacity: 1;
+}
+
+/* New button style for dark backgrounds */
+.btn.btn-light {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.btn.btn-light:hover {
+  opacity: 0.9;
+}
+
+/* =================================== */
+/* 7. FOOTER
+    /* =================================== */
+.footer {
+  padding: 4rem 0;
+  background-color: var(--card-background);
+  border-top: 1px solid var(--secondary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-brand h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+
+.footer-column h4 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.footer-column ul li a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* =================================== */
+/* 3. "ABOUT" PAGE-SPECIFIC STYLES
+    /* =================================== */
+
+/* Simple centered page header */
+.about-header {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--card-background); /* Gives it a slight separation */
+}
+
+.about-header h1 {
+  margin-bottom: 1rem;
+}
+
+.about-header p {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 800px; /* Constrains line length */
+  margin: 0 auto;
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+  padding: 5rem 0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.mission-grid h2 {
+  margin-bottom: 1rem;
+}
+
+/* Our Story Section */
+.our-story {
+  padding: 5rem 0;
+  background-color: var(--card-background);
+}
+
+.our-story .container {
+  max-width: 800px; /* Center and constrain for readability */
+  text-align: center;
+}
+
+.our-story h2 {
+  margin-bottom: 2rem;
+}
+
+.our-story p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-align: left; /* Better for reading long text */
+}
+
+/* "Our Values" Section (Reuses "features" styles) */
+.features {
+  padding: 5rem 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+:root[data-theme="dark"] .feature-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+}
+
+/* "Meet the Team" Section */
+.team {
+  padding: 5rem 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.team-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+:root[data-theme="dark"] .team-card-img {
+  color: var(--text);
+}
+
+.team-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-card p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* =================================== */
+/* 8. RESPONSIVE STYLES
+    /* =================================== */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-content {
+    order: 2; /* Text below image */
+  }
+  .hero-image {
+    order: 1;
+    min-height: 250px;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
 }
