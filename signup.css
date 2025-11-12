@@ -1,0 +1,123 @@
+/* signup.css — theme-matched styles (uses project CSS variables) */
+
+/* Page spacing */
+.auth-section {
+  padding: 4.5rem 0;
+  background: var(--card-background);
+}
+
+/* Layout: left explainer + right form card */
+.auth-grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* Reuse card visuals (keeps same look) */
+.card {
+  background: var(--background);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* Left column */
+.auth-info h2 {
+  margin-bottom: 0.5rem;
+}
+.auth-info p {
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+.benefits {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+.benefits li {
+  margin: 0.6rem 0;
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+}
+.benefits i {
+  color: var(--primary);
+  margin-right: 0.6rem;
+}
+
+/* Signup card */
+.auth-card h2 {
+  margin-bottom: 0.3rem;
+  font-size: 1.25rem;
+}
+
+/* Form rows */
+.form-row {
+  margin-bottom: 1rem;
+}
+.form-row label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.form-row input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-background);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.form-row input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  outline: none;
+}
+
+/* Two-column (passwords) */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+/* Checkbox row style */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* error small text */
+.error {
+  display: block;
+  margin-top: 0.35rem;
+  color: #d9534f;
+  font-size: 0.88rem;
+  height: 1.05rem;
+  visibility: hidden;
+}
+.error.show {
+  visibility: visible;
+}
+
+/* Buttons */
+.btn-block { width: 100%; }
+.form-message { margin-top: 0.9rem; font-weight: 600; }
+
+/* adjust small screens */
+@media (max-width: 980px) {
+  .auth-grid { grid-template-columns: 1fr; }
+  .two-cols { grid-template-columns: 1fr; }
+}

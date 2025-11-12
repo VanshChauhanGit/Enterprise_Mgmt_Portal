@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SynergyFlow - Contact Us</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="features.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <h2 class="navbar-brand">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="logo" />
+            <span>SynergyFlow</span>
+          </a>
+        </h2>
+
+        <ul class="navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+          <button class="btn">Login</button>
+          <button id="theme-toggle-icon" class="theme-icon-btn" title="Toggle Theme">
+            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+      <h1>Get in Touch</h1>
+      <p>We’re here to answer your questions and help your team succeed.</p>
+    </header>
+
+    <!-- Contact Section -->
+    <main>
+      <section class="contact-section">
+        <div class="container contact-grid">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Business Ave, New Delhi, India</p>
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope"></i> support@synergyflow.com</p>
+            <p><i class="fa-solid fa-clock"></i> Mon - Fri: 9AM - 6PM</p>
+
+            <div class="social-links">
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" rows="5" required></textarea>
+              </div>
+
+              <button type="submit" class="btn">Send Message</button>
+              <p id="formMessage" class="form-message"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column footer-brand">
+            <h3>SynergyFlow</h3>
+            <p>&copy; 2025 SynergyFlow Inc. All rights reserved.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>
