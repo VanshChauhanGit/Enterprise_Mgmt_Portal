@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - SynergyFlow</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-profile">
+          <img
+            class="profile-image"
+            src="https://plus.unsplash.com/premium_photo-1677252438411-9a930d7a5168?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"
+            alt="profile image"
+          />
+
+          <h3>Vansh Chauhan</h3>
+          <p>vansh6170r@gmail.com</p>
+          <span class="admin-tag">Admin</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" class="nav-link active" data-target="page-dashboard"
+                ><i class="fas fa-dashboard"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-target="page-manage-tasks"
+                ><i class="fas fa-tasks"></i> Manage Task</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-target="page-create-task"
+                ><i class="fas fa-plus-circle"></i> Create Task</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-target="page-team-members"
+                ><i class="fas fa-users"></i> Team Members</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1 id="page-title">Dashboard</h1>
+          <div class="navbar-actions">
+            <button
+              id="theme-toggle-icon"
+              class="theme-icon-btn"
+              title="Toggle light/dark theme"
+            >
+              <i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </header>
+
+        <section id="page-dashboard" class="dashboard-page active">
+          <section class="welcome-banner">
+            <div>
+              <h2>Welcome, Vansh Chauhan!</h2>
+              <p id="current-date">Loading date...</p>
+            </div>
+            <button class="btn nav-link" data-target="page-create-task">
+              <i class="fas fa-plus"></i> Create New Task
+            </button>
+          </section>
+
+          <section class="stats-grid">
+            <div class="stat-card">
+              <h3>Total Tasks</h3>
+              <p class="stat-number" id="stat-total">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>Pending Tasks</h3>
+              <p class="stat-number" id="stat-pending">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>In Progress Tasks</h3>
+              <p class="stat-number" id="stat-progress">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>Completed Tasks</h3>
+              <p class="stat-number" id="stat-completed">0</p>
+            </div>
+          </section>
+
+          <section class="charts-grid">
+            <div class="chart-container">
+              <h3>Task Distribution</h3>
+              <canvas id="taskDistributionChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Task Priority</h3>
+              <canvas id="taskPriorityChart"></canvas>
+            </div>
+          </section>
+        </section>
+
+        <section id="page-manage-tasks" class="dashboard-page">
+          <div class="table-container">
+            <table class="task-table">
+              <thead>
+                <tr>
+                  <th>Task Name</th>
+                  <th>Assignee</th>
+                  <th>Due Date</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="manage-tasks-tbody">
+                <tr>
+                  <td colspan="6">Loading tasks...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="page-create-task" class="dashboard-page">
+          <div class="form-container">
+            <form id="createTaskForm">
+              <div class="form-group">
+                <label for="taskTitle">Task Title</label
+                ><input
+                  type="text"
+                  id="taskTitle"
+                  class="form-control"
+                  placeholder="e.g. Design new logo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="assignee">Assign To</label
+                ><select id="assignee" class="form-control" required>
+                  <option value="">Loading members...</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="priority">Priority Level</label
+                ><select id="priority" class="form-control">
+                  <option value="High">High</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dueDate">Due Date</label
+                ><input
+                  type="date"
+                  id="dueDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label
+                ><textarea
+                  id="description"
+                  class="form-control"
+                  placeholder="Enter task details..."
+                ></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn" id="submit-task-btn">
+                  Create Task
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary nav-link"
+                  data-target="page-dashboard"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="page-team-members" class="dashboard-page">
+          <div class="members-grid" id="team-members-grid">
+            <p>Loading team members...</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/dashboard.js" defer></script>
+  </body>
+</html>
