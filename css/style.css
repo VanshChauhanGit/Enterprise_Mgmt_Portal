@@ -173,18 +173,18 @@ a:hover {
   border: none;
   color: var(--text);
   cursor: pointer;
-  
+
   /* Size and shape */
   font-size: 1.25rem; /* Adjust icon size */
   width: 40px;
   height: 40px;
   padding: 0;
-  
+
   /* Center the icon */
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   /* Styling to match other buttons */
   border-radius: 50%; /* Make it circular */
   transition: background-color 0.2s, color 0.2s;
@@ -218,6 +218,24 @@ a:hover {
   .navbar-nav {
     display: none;
   }
+}
+
+/* --- Page Header --- */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--card-background);
+}
+
+.page-header h1 {
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* =================================== */
@@ -424,12 +442,11 @@ a:hover {
 }
 
 .footer-column {
-      display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
 }
-
 
 .footer-column h4 {
   margin-bottom: 1rem;
