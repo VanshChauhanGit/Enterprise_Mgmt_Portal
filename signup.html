@@ -6,22 +6,13 @@
     <title>Sign Up - SynergyFlow</title>
     <link rel="icon" type="image/png" href="assets/logo.png" />
 
-    <!-- Font Awesome (same as other pages) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
-    <!-- Core/theme styles (your project's existing CSS) -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="features.css" />
-
-    <!-- Signup-specific styles -->
     <link rel="stylesheet" href="css/signup.css" />
-
-    <!-- Scripts: theme/main first, then page script -->
-    <script defer src="js/main.js"></script>
-    <script defer src="js/signup.js"></script>
   </head>
 
   <body>
@@ -46,7 +37,11 @@
           <a href="/login.html">
             <button class="btn">Login</button>
           </a>
-          <button id="theme-toggle-icon" class="theme-icon-btn" title="Toggle Theme">
+          <button
+            id="theme-toggle-icon"
+            class="theme-icon-btn"
+            title="Toggle Theme"
+          >
             <i class="fas fa-sun"></i> <i class="fas fa-moon"></i>
           </button>
         </div>
@@ -57,7 +52,9 @@
     <header class="page-header">
       <div class="container">
         <h1>Create your SynergyFlow account</h1>
-        <p>Join teams, track projects, and get insights — built for enterprises.</p>
+        <p>
+          Join teams, track projects, and get insights — built for enterprises.
+        </p>
       </div>
     </header>
 
@@ -69,14 +66,20 @@
           <div class="auth-info card">
             <h2>Why choose SynergyFlow?</h2>
             <p>
-              Enterprise-grade security, clean workflows, and analytics that help
-              managers make decisions faster — all in one place.
+              Enterprise-grade security, clean workflows, and analytics that
+              help managers make decisions faster — all in one place.
             </p>
 
             <ul class="benefits">
-              <li><i class="fa-solid fa-diagram-project"></i> Project management</li>
-              <li><i class="fa-solid fa-people-group"></i> Team collaboration</li>
-              <li><i class="fa-solid fa-chart-line"></i> Analytics & reporting</li>
+              <li>
+                <i class="fa-solid fa-diagram-project"></i> Project management
+              </li>
+              <li>
+                <i class="fa-solid fa-people-group"></i> Team collaboration
+              </li>
+              <li>
+                <i class="fa-solid fa-chart-line"></i> Analytics & reporting
+              </li>
             </ul>
           </div>
 
@@ -87,43 +90,80 @@
             <form id="signupForm" novalidate>
               <div class="form-row">
                 <label for="fullname">Full name</label>
-                <input id="fullname" name="fullname" type="text" placeholder="Your full name" required />
+                <input
+                  id="fullname"
+                  name="fullname"
+                  type="text"
+                  placeholder="Your full name"
+                  required
+                />
                 <small class="error" id="err-name"></small>
               </div>
 
               <div class="form-row">
                 <label for="email">Email address</label>
-                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  required
+                />
                 <small class="error" id="err-email"></small>
               </div>
 
               <div class="form-row two-cols">
                 <div>
                   <label for="password">Password</label>
-                  <input id="password" name="password" type="password" placeholder="Create password" required />
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Create password"
+                    required
+                  />
                   <small class="error" id="err-pass"></small>
                 </div>
 
                 <div>
                   <label for="confirm">Confirm password</label>
-                  <input id="confirm" name="confirm" type="password" placeholder="Re-type password" required />
+                  <input
+                    id="confirm"
+                    name="confirm"
+                    type="password"
+                    placeholder="Re-type password"
+                    required
+                  />
                   <small class="error" id="err-confirm"></small>
                 </div>
               </div>
 
               <div class="form-row checkbox-row">
                 <input id="terms" type="checkbox" />
-                <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                <label for="terms"
+                  >I agree to the <a href="#">Terms & Conditions</a></label
+                >
                 <small class="error" id="err-terms"></small>
               </div>
 
-              <button id="signupBtn" type="submit" class="btn btn-primary btn-block">Create account</button>
+              <button
+                id="signupBtn"
+                type="submit"
+                class="btn btn-primary btn-block"
+              >
+                Create account
+              </button>
 
               <p class="switch-auth">
                 Already have an account? <a href="login.html">Log in</a>
               </p>
 
-              <p id="signupMessage" class="form-message" role="status" aria-live="polite"></p>
+              <p
+                id="signupMessage"
+                class="form-message"
+                role="status"
+                aria-live="polite"
+              ></p>
             </form>
           </div>
         </div>
@@ -158,5 +198,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/signup.js" defer></script>
   </body>
 </html>
